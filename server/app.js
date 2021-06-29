@@ -1,3 +1,4 @@
+require('dotenv').config()
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -13,7 +14,7 @@ var usersRouter = require('./routes/users');
 var mongoose = require('mongoose');
 var app = express();
 
-mongoose.connect('mongodb+srv://shanto:123shanto@crudapplication.jxvts.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
+mongoose.connect(process.env.MONGODB_URL, {
    useNewUrlParser: true,
    useUnifiedTopology: true
   })
